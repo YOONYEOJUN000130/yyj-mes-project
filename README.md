@@ -103,6 +103,7 @@ Virtual PLC Simulator는 기본적으로 `http://localhost:9090`에서 실행됩
 
 ## 11. 장애 이력 관리
 
+/docs/TROUBLESHOOTING.md 참조
 
 ## 12. 느낀 점
 
