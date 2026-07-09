@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>제품 진행 상태</title>
+</head>
+<body>
+<h1>제품 진행 상태</h1>
+
+<p>
+    <a href="/">홈으로</a>
+    <a href="/plc-events">PLC 이벤트 목록</a>
+    <a href="/production-records">생산 실적 목록</a>
+    <a href="/finished-products">완성품 목록</a>
+</p>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>제품 번호</th>
+        <th>A 공정</th>
+        <th>B 공정</th>
+        <th>C 공정</th>
+        <th>진행 상태</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="progress : ${progressList}">
+        <td th:text="${progress.productSerialNo}">YYJ-000001</td>
+        <td th:text="${progress.processAResult}">OK</td>
+        <td th:text="${progress.processBResult}">OK</td>
+        <td th:text="${progress.processCResult}">OK</td>
+        <td th:text="${progress.progressStatus}">COMPLETED</td>
+    </tr>
+
+    <tr th:if="${#lists.isEmpty(progressList)}">
+        <td colspan="5">등록된 제품 진행 데이터가 없습니다.</td>
+    </tr>
+    </tbody>
+</table>
+
+<h2>상태 기준</h2>
+<ul>
+    <li>COMPLETED: A/B/C 공정이 모두 OK인 제품</li>
+    <li>DEFECT: A/B/C 공정 중 하나라도 NG가 발생한 제품</li>
+    <li>INCOMPLETE: A/B/C 공정 중 아직 수신되지 않은 공정이 있는 제품</li>
+</ul>
+</body>
+</html>

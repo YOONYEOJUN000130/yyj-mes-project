@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>PLC 이벤트 목록</title>
+</head>
+<body>
+<h1>PLC 이벤트 목록</h1>
+
+<a href="/">홈으로</a>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>이벤트 ID</th>
+        <th>라인</th>
+        <th>설비</th>
+        <th>공정</th>
+        <th>제품번호</th>
+        <th>생산량</th>
+        <th>사이클타임</th>
+        <th>결과</th>
+        <th>설비상태</th>
+        <th>수신시간</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="event : ${events}">
+        <td th:text="${event.eventId}">EVT</td>
+        <td th:text="${event.lineCode}">LINE-1</td>
+        <td th:text="${event.equipmentCode}">EQ-A-01</td>
+        <td th:text="${event.processCode}">A</td>
+        <td th:text="${event.productSerialNo}">YYJ-000001</td>
+        <td th:text="${event.productionQuantity}">1</td>
+        <td th:text="${event.cycleTimeSeconds}">24.5</td>
+        <td th:text="${event.result}">OK</td>
+        <td th:text="${event.equipmentStatus}">RUNNING</td>
+        <td th:text="${event.receivedAt}">2026-07-06T19:00:00</td>
+    </tr>
+    <tr th:if="${events.isEmpty()}">
+        <td colspan="10">저장된 PLC 이벤트가 없습니다.</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

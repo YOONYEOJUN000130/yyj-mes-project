@@ -1,0 +1,44 @@
+# macOS
+.DS_Store
+
+# IntelliJ
+.idea/
+*.iml
+out/
+
+# Gradle
+.gradle/
+build/
+
+# Java
+*.class
+
+# Logs
+*.log
+logs/
+
+# Environment / secrets
+.env
+*.env
+application-local.properties
+application-secret.properties
+
+# Generated files
+generated/
+tmp/
+
+# Oracle / wallet / certificates
+wallet/
+*.jks
+*.p12
+*.pfx
+*.pem
+*.key
+*.crt
+*.cer
+
+# Project build outputs
+mes-server/build/
+mes-server/.gradle/
+virtual-plc-simulator/build/
+virtual-plc-simulator/.gradle/

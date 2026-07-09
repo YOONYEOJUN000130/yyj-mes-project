@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>완성품 목록</title>
+</head>
+<body>
+<h1>완성품 목록</h1>
+
+<a href="/">홈으로</a>
+<a href="/plc-events">PLC 이벤트 목록</a>
+
+<table border="1">
+  <thead>
+  <tr>
+    <th>제품번호</th>
+    <th>라인</th>
+    <th>최종결과</th>
+    <th>완료시간</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="product : ${products}">
+    <td th:text="${product.productSerialNo}">YYJ-000001</td>
+    <td th:text="${product.lineCode}">LINE-1</td>
+    <td th:text="${product.finalResult}">OK</td>
+    <td th:text="${product.completedAt}">2026-07-06T20:00:00</td>
+  </tr>
+  <tr th:if="${products.isEmpty()}">
+    <td colspan="4">등록된 완성품이 없습니다.</td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>MES Server</title>
+</head>
+<body>
+<h1 th:text="${projectName}">MES Server</h1>
+
+<p>가상 PLC 데이터를 수집하여 Oracle DB에 저장하는 MES 서버입니다.</p>
+
+<ul>
+    <li>Virtual PLC → REST API → MES Server</li>
+    <li>MES Server → Oracle DB 저장</li>
+    <li>A/B/C 공정 데이터 수집</li>
+    <li>완성품 이력 관리</li>
+    <li>생산 실적 데이터 관리</li>
+</ul>
+
+<hr>
+
+<h2>메뉴</h2>
+
+<hr>
+
+<h2>관리</h2>
+
+<form action="/reset-test-data" method="post">
+    <button type="submit">테스트 데이터 전체 삭제</button>
+</form>
+
+<ul>
+    <li><a href="/plc-events">PLC 이벤트 목록</a></li>
+    <li><a href="/finished-products">완성품 목록</a></li>
+    <li><a href="/production-records">생산 실적 목록</a></li>
+    <li><a href="/analysis">병목 분석 대시보드</a></li>
+    <li><a href="/product-cycle-times">제품별 사이클타임 분석</a></li>
+    <li><a href="/product-progress">제품 진행 상태</a></li>
+</ul>
+</body>
+</html>

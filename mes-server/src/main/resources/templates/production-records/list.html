@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>생산 실적 목록</title>
+</head>
+<body>
+<h1>생산 실적 목록</h1>
+
+<a href="/">홈으로</a>
+<a href="/plc-events">PLC 이벤트 목록</a>
+<a href="/finished-products">완성품 목록</a>
+
+<table border="1">
+  <thead>
+  <tr>
+    <th>제품번호</th>
+    <th>공정</th>
+    <th>생산량</th>
+    <th>사이클타임초</th>
+    <th>결과</th>
+    <th>기록시간</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="record : ${records}">
+    <td th:text="${record.productSerialNo}">YYJ-000001</td>
+    <td th:text="${record.processCode}">A</td>
+    <td th:text="${record.productionQuantity}">1</td>
+    <td th:text="${record.cycleTimeSeconds}">24.5</td>
+    <td th:text="${record.result}">OK</td>
+    <td th:text="${record.recordedAt}">2026-07-06T20:30:00</td>
+  </tr>
+  <tr th:if="${records.isEmpty()}">
+    <td colspan="6">등록된 생산 실적이 없습니다.</td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>
